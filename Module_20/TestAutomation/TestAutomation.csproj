@@ -6,7 +6,7 @@
     <ProjectGuid>{067456C0-086C-46A8-B37F-1405717B7BFC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SampleCodeApp</RootNamespace>
+    <RootNamespace>TestAutomation</RootNamespace>
     <AssemblyName>TestAutomation</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -38,7 +38,14 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTests.cs" />
+    <Compile Include="Suite2UnitTests.cs" />
+    <Compile Include="TestCaseBase.cs" />
+    <Compile Include="TestResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Suite1UnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +69,12 @@
       <Project>{cf75df4a-dee0-4977-8a21-c0ec385a6508}</Project>
       <Name>DataDrivenFramework</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TestResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TestResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
