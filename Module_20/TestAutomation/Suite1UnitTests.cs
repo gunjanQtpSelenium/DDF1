@@ -13,20 +13,20 @@ namespace TestAutomation
         [Test]
         public void SuiteSelectionTest()
         {
-          
-            Console.WriteLine(SelectionHelper.IsSuiteSelected(TestResource.SuitesExcelFilePath, "SuiteA"));
-            Console.WriteLine(SelectionHelper.IsSuiteSelected(TestResource.SuitesExcelFilePath, "SuiteB"));
-            Console.WriteLine(SelectionHelper.IsSuiteSelected(TestResource.SuitesExcelFilePath, "SuiteC"));
+
+            APP_LOGGER.Info(SelectionHelper.IsSuiteSelected(TestResource.SuitesExcelFilePath, "SuiteA"));
+            APP_LOGGER.Info(SelectionHelper.IsSuiteSelected(TestResource.SuitesExcelFilePath, "SuiteB"));
+            APP_LOGGER.Info(SelectionHelper.IsSuiteSelected(TestResource.SuitesExcelFilePath, "SuiteC"));
         }
 
         [Test]
         public void TestSelectionTest()
         {
-            Console.WriteLine(SelectionHelper.IsTestSelected(TestResource.SuiteAExcelFilePath, "Test1"));
-            Console.WriteLine(SelectionHelper.IsTestSelected(TestResource.SuiteAExcelFilePath, "Test2"));
-            Console.WriteLine(SelectionHelper.IsTestSelected(TestResource.SuiteAExcelFilePath, "Test3"));
-            Console.WriteLine(SelectionHelper.IsTestSelected(TestResource.SuiteAExcelFilePath, "Test4"));
-            Console.WriteLine(SelectionHelper.IsTestSelected(TestResource.SuiteAExcelFilePath, "Test5"));
+            APP_LOGGER.Debug(SelectionHelper.IsTestSelected(TestResource.SuiteAExcelFilePath, "Test1"));
+            APP_LOGGER.Debug(SelectionHelper.IsTestSelected(TestResource.SuiteAExcelFilePath, "Test2"));
+            APP_LOGGER.Debug(SelectionHelper.IsTestSelected(TestResource.SuiteAExcelFilePath, "Test3"));
+            APP_LOGGER.Debug(SelectionHelper.IsTestSelected(TestResource.SuiteAExcelFilePath, "Test4"));
+            APP_LOGGER.Debug(SelectionHelper.IsTestSelected(TestResource.SuiteAExcelFilePath, "Test5"));
         }
 
         [Test]
@@ -35,18 +35,18 @@ namespace TestAutomation
             List<Dictionary<string, string>> tdList = SelectionHelper.GetTestData(TestResource.SuiteAExcelFilePath, "Test4");
             foreach (var dict in tdList)
             {
-                Console.WriteLine("Runmode :{0}, Col1 :{1}", dict["Runmode"], dict["Col1"]);
+                APP_LOGGER.DebugFormat("Runmode :{0}, Col1 :{1}", dict["Runmode"], dict["Col1"]);
 
             }
         }
 
-      
+
 
         [Test, TestCaseSource("Test1Data")]
         public void DataDrivenTest1(Dictionary<string, string> dict)
         {
             ValidateRunMode("SuiteA", "Test1", dict["Runmode"]);
-            Console.WriteLine("Runmode :{0}, Col1 :{1}", dict["Runmode"], dict["Col1"]);
+            APP_LOGGER.DebugFormat("Runmode :{0}, Col1 :{1}", dict["Runmode"], dict["Col1"]);
         }
 
         //DATA SOURCE
@@ -58,6 +58,15 @@ namespace TestAutomation
                 yield return dict;
             }
         }
+
+        //[TestCase(12, 3, 4)]
+        //[TestCase(12, 2, 6)]
+        //[TestCase(12, 4, 3)]
+        //public void DivideTest(int n, int d, int q)
+        //{
+        //    Console.WriteLine(n + "--" + d + "---" + q);
+               
+        //}
 
     }
 }
