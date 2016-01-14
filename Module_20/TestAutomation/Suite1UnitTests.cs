@@ -7,6 +7,7 @@ using System.Collections.Generic;
 namespace TestAutomation
 {
     [TestFixture]
+    [Parallelizable(ParallelScope.Self)]
     public class Suite1UnitTests : TestCaseBase
     {
 

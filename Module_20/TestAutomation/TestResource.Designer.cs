@@ -61,6 +61,24 @@ namespace TestAutomation {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to chrome,firefox.
+        /// </summary>
+        internal static string BrowserToRunWith {
+            get {
+                return ResourceManager.GetString("BrowserToRunWith", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://127.0.0.1:4444/wd/hub.
+        /// </summary>
+        internal static string GridHubURL {
+            get {
+                return ResourceManager.GetString("GridHubURL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to C:\\Users\\a\\Desktop\\DDF1\\Module_20\\TestAutomation\\TestData\\SuiteA.xlsx.
         /// </summary>
         internal static string SuiteAExcelFilePath {
